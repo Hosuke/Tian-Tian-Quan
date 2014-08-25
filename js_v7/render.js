@@ -67,15 +67,15 @@ function render() {
 }
 
 function renderBeginningText() {
-	renderText((trueCanvas.width)/2 + 1.5 * settings.scale, (trueCanvas.height)/2 - 208 * settings.scale, 35, '#2c3e50', 'Controls', '35px Roboto');
-	renderText((trueCanvas.width)/2 - 85 * settings.scale, (trueCanvas.height)/2 - 169 * settings.scale, 20, '#2c3e50', 'Rotation:', '20px Roboto');
-	renderText((trueCanvas.width)/2 - 21 * settings.scale, (trueCanvas.height)/2 - 141 * settings.scale, 12, '#2c3e50', 'Left', '12px Roboto');
-	renderText((trueCanvas.width)/2 + 25 * settings.scale, (trueCanvas.height)/2 - 141 * settings.scale, 12, '#2c3e50', 'Right', '12px Roboto');
+	renderText((trueCanvas.width)/2 + 1.5 * settings.scale, (trueCanvas.height)/2 - 208 * settings.scale, 35, '#2c3e50', '控制', '35px Roboto');
+	renderText((trueCanvas.width)/2 - 85 * settings.scale, (trueCanvas.height)/2 - 169 * settings.scale, 20, '#2c3e50', '旋转:', '20px Roboto');
+	renderText((trueCanvas.width)/2 - 21 * settings.scale, (trueCanvas.height)/2 - 141 * settings.scale, 12, '#2c3e50', '左', '12px Roboto');
+	renderText((trueCanvas.width)/2 + 25 * settings.scale, (trueCanvas.height)/2 - 141 * settings.scale, 12, '#2c3e50', '右', '12px Roboto');
 	drawKey("right",(trueCanvas.width)/2 + 23 * settings.scale - 35/2 * settings.scale, (trueCanvas.height)/2 - 195 * settings.scale);
 	drawKey("left",(trueCanvas.width)/2 - 23 * settings.scale - 35/2 * settings.scale, (trueCanvas.height)/2 - 195 * settings.scale);
-	renderText((trueCanvas.width)/2 + 1.5 * settings.scale, (trueCanvas.height)/2 - 125 * settings.scale, 20, '#2c3e50', 'Rotate the Hexagon to make combos of 3+ touching blocks!', '20px Roboto');
-	renderText((trueCanvas.width)/2 + 1.5 * settings.scale, (trueCanvas.height)/2 - 105 * settings.scale, 20, '#2c3e50', 'Make combos in a row to receive a score multiplier!', '20px Roboto');
-	renderText((trueCanvas.width)/2 + 1.5 * settings.scale, (trueCanvas.height)/2 - 85 * settings.scale, 20, '#2c3e50', 'Don\'t let the blocks stack outside of the gray Hexagon!', '20px Roboto');
+	renderText((trueCanvas.width)/2 + 1.5 * settings.scale, (trueCanvas.height)/2 - 125 * settings.scale, 20, '#2c3e50', '旋转六边形以取得3个以上的连续色块!', '20px Roboto');
+	renderText((trueCanvas.width)/2 + 1.5 * settings.scale, (trueCanvas.height)/2 - 105 * settings.scale, 20, '#2c3e50', '通过连击取得加成分数!', '20px Roboto');
+	renderText((trueCanvas.width)/2 + 1.5 * settings.scale, (trueCanvas.height)/2 - 85 * settings.scale, 20, '#2c3e50', '注意不要让方块超出灰色区域!', '20px Roboto');
 }
 
 function drawKey(key, x, y) {

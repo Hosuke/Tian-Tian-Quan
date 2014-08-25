@@ -109,7 +109,7 @@ function initialize(a) {
             comboTime: 240
         };
 
-        $("#inst_main_body").html("The goal of Hextris is to stop blocks from leaving the inside of the outer gray hexagon<br><br>Either press the right and left arrow keys or tap the left and right sides of the screen to rotate the Hexagon<br><br>Clear blocks by making 3 or more blocks of the same color touch<br><br>Get points by clearing blocks<br><br>Time left before your combo streak disappears is indicated shown by <span style='color:#f1c40f;'>the</span> <span style='color:#e74c3c'>colored<span> <span style='color:#3498db'>lines</span> <span style='color:#2ecc71'>in</span> the outer hexagon<br><br>Pause by pressing <i class = 'fa fa-pause'></i> or the letter <b>p</b><br>Restart by pressing <i class = 'fa fa-refresh'></i> or <b>enter</b><br>Bring up this menu by pressing <i class = 'fa fa-info-circle'><br><br><a href = 'https://github.com/Hextris/hextris/issues'>Found a bug? Go here</a");
+        $("#inst_main_body").html("通过消除方块使方块不会累积超出灰色区域<br><br>按左右键来旋转六边形<br><br>当3个颜色相同的方块聚在一起时就会被消掉<br><br>消掉更多的方块来赢取高分<br><br><span style='color:#f1c40f;'>彩色</span> <span style='color:#e74c3c'>的</span> <span style='color:#3498db'>六边形</span> <span style='color:#2ecc71'>边</span> 表示连击剩余时间<br><br>暂停游戏请按 <i class = 'fa fa-pause'></i> 或者 <b>p</b>键<br>重新开始请按 <i class = 'fa fa-refresh'></i> 或者 <b>回车</b><br>帮助请按 <i class = 'fa fa-info-circle'>");
     }
 
     window.canvas = document.getElementById('canvas');

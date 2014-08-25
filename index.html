@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang='en'>
 	<head>
-		<title>Hextris</title>
+		<title>填填圈</title>
+        <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, minimal-ui"/>
 		<meta property="og:url" content="http://hextris.github.io/hextris/" />
 		<meta property="og:site_name" content="Hextris" />
@@ -77,34 +78,40 @@
 		</div>
 		<div id='startBtn' style='position:absolute;left:40%;top:38%;height:25%;width:25%;z-index:99999999;cursor:pointer;'></div>
 		<div id="helpScreen" class = 'unselectable'>
-			<h1 class = 'instructions_body'>Instructions</h1>
+			<h1 class = 'instructions_body'>说明</h1>
 			<p class = 'instructions_body' id = 'inst_main_body'>
-				The goal of Hextris is to stop blocks from leaving the inside of the outer gray hexagon
+                通过消除方块使方块不会累积超出灰色区域
 				<br>
 				<br>
-				Tap the left and right sides of the screen to rotate the Hexagon
+				<!--Tap the left and right sides of the screen to rotate the Hexagon-->
+                轻击屏幕的左右两端来旋转六边形
 				<br>
 				<br>
-				Clear blocks by making 3 or more blocks of the same color touch
+				<!--Clear blocks by making 3 or more blocks of the same color touch-->
+                当3个颜色相同的方块聚在一起时就会被消掉
 				<br>
 				<br>
-				Get points by clearing blocks
+				<!--Get points by clearing blocks-->
+                消掉更多的方块来赢取高分
 				<br>
 				<br>
-				Time left before your combo streak disappears is indicated shown by <span style='color:#f1c40f;'>the</span> <span style='color:#e74c3c'>colored</span><span style='color:#3498db'>lines</span> <span style='color:#2ecc71'>in</span> the outer hexagon
+				<span style='color:#f1c40f;'>彩色</span> <span style='color:#e74c3c'>的</span> <span style='color:#3498db'>六边形</span> <span style='color:#2ecc71'>边</span> 表示连击剩余时间
 				<br>
 				<br>
-				Pause by pressing <i class = 'fa fa-pause'></i>
+				<!--Pause by pressing <i class = 'fa fa-pause'></i>-->
+                暂停游戏请按 <i class = 'fa fa-pause'></i>
 				<br>
-				Restart by pressing <i class = 'fa fa-refresh'></i>
+				<!--Restart by pressing <i class = 'fa fa-refresh'></i>-->
+                重新开始请按 <i class = 'fa fa-refresh'></i>
 				<br>
-				Bring up this menu by pressing <i class = 'fa fa-info-circle'></i>
+				<!--Bring up this menu by pressing <i class = 'fa fa-info-circle'></i>-->
+                游戏规则请按 <i class = 'fa fa-info-circle'></i>
 				<br>
 				<br>
-				<span>Comments? Email <a href='mailto:hextrisgame@gmail.com'>hextrisgame@gmail.com</a></span>
+
 			</p>
 		</div>
-		<div id="openSideBar" class = 'helpText'><i class="fa fa-info-circle fa-lg"></i> <i class="fa fa-arrow-left"><b>  Help</b></i></div>
+		<div id="openSideBar" class = 'helpText'><i class="fa fa-info-circle fa-lg"></i> <i class="fa fa-arrow-left"><b>  帮助</b></i></div>
 		<div id="overlay" class="faded"></div>
 		<div id = 'pauseBtn'><div id = 'pauseBtnInner'><i class="fa fa-pause fa-2x"></div></i></div>
 		<div id = 'restartBtn'><div id = 'restartBtnInner'><i class="fa fa-refresh fa-2x"></i></div></div>

@@ -38,13 +38,13 @@ function drawScoreboard() {
 
     if (gameState === 0) {
         renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy, 60, "rgb(236, 240, 241)", String.fromCharCode("0xf04b"), 'px FontAwesome');
-        renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy - 170 * settings.scale, 150, "#2c3e50", "Hextris");
-        renderText(trueCanvas.width / 2 + gdx + 5 * settings.scale, trueCanvas.height / 2 + gdy + 100 * settings.scale, 20, "rgb(44,62,80)", 'Play!');
+        renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy - 170 * settings.scale, 150, "#2c3e50", "填填圈");
+        renderText(trueCanvas.width / 2 + gdx + 5 * settings.scale, trueCanvas.height / 2 + gdy + 100 * settings.scale, 20, "rgb(44,62,80)", '开始!');
     } else if (gameState != 0 && textOpacity > 0) {
         textOpacity -= 0.05;
         renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy, 60, "rgb(236, 240, 241)", String.fromCharCode("0xf04b"), 'px FontAwesome');
-        renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy - 170 * settings.scale, 150, "#2c3e50", "Hextris");
-        renderText(trueCanvas.width / 2 + gdx + 5 * settings.scale, trueCanvas.height / 2 + gdy + 100 * settings.scale, 20, "rgb(44,62,80)", 'Play!');
+        renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy - 170 * settings.scale, 150, "#2c3e50", "填填圈");
+        renderText(trueCanvas.width / 2 + gdx + 5 * settings.scale, trueCanvas.height / 2 + gdy + 100 * settings.scale, 20, "rgb(44,62,80)", '开始!');
         ctx.globalAlpha = scoreOpacity;
         renderText(trueCanvas.width / 2 + gdx, trueCanvas.height / 2 + gdy, scoreSize, "rgb(236, 240, 241)", score);
     } else {
@@ -92,15 +92,15 @@ function toggleClass(element, active) {
 
 function showText(text) {
     var messages = {
-        'paused': "<div class='centeredHeader unselectable'>Paused</div><br><div class='unselectable centeredSubHeader'>Press p to resume</div><div style='height:100px;line-height:100px;cursor:pointer;'></div>",
-        'pausedMobile': "<div class='centeredHeader unselectable'>Paused</div><br><div class='unselectable centeredSubHeader'>Press <i class='fa fa-play'></i> to resume</div><div style='height:100px;line-height:100px;cursor:pointer;'></div>",
-        'start': "<div class='centeredHeader unselectable' style='line-height:80px;'>Press enter to start</div>",
+        'paused': "<div class='centeredHeader unselectable'>暂停</div><br><div class='unselectable centeredSubHeader'>按 P键 继续</div><div style='height:100px;line-height:100px;cursor:pointer;'></div>",
+        'pausedMobile': "<div class='centeredHeader unselectable'>暂停</div><br><div class='unselectable centeredSubHeader'>按 <i class='fa fa-play'></i> 继续</div><div style='height:100px;line-height:100px;cursor:pointer;'></div>",
+        'start': "<div class='centeredHeader unselectable' style='line-height:80px;'>按回车键开始</div>",
         'gameover': "<div class='modal fade' id='gameOver'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'>"+
             "<button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>" +
             "<h2 class='centeredHeader unselectable'> Game Over </h2></div>" +
             "<div class='modal-body'>" +
             "<span class = 'label label-success' style = 'font-size:2.5rem;'>" + score + " pts</span>" +
-            "<div style='font-size:2rem; margin-top: 2rem' class='centeredHeader unselectable'> High Scores:</div><table class='tg' style='margin:0px auto'> "
+            "<div style='font-size:2rem; margin-top: 2rem' class='centeredHeader unselectable'> 高分:</div><table class='tg' style='margin:0px auto'> "
 
     };
 
@@ -122,9 +122,9 @@ function showText(text) {
 
         var restartText;
         if (settings.platform == 'mobile') {
-            restartText = 'Tap anywhere to restart!';
+            restartText = '轻按重新开始!';
         } else {
-            restartText = 'Press enter (or click anywhere!) to restart!';
+            restartText = '按回车键重新开始!';
         }
 
         messages['gameover'] += "</table><br><div class='unselectable centeredSubHeader' id = 'tapToRestart'>" + restartText + "</div>" +"</div>";
