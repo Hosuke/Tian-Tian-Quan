@@ -76,7 +76,7 @@ function init(b) {
 
         setTimeout(function() {
             $('.helpText').fadeOut(150, "linear");
-                infobuttonfading = false;
+            infobuttonfading = false;
         }, 7000);
         clearSaveState();
     }
@@ -207,7 +207,7 @@ function animLoop() {
             requestAnimFrame(animLoop);
             render();
             var now = Date.now();
-            var dt = (now - lastTime)/16.666;
+            var dt = (now - lastTime)/16.666 * rush;
 
             if(gameState == 1 ){
                 if(!MainHex.delay) {
@@ -255,7 +255,7 @@ function animLoop() {
 
         case 2:
             var now = Date.now();
-            var dt = (now - lastTime)/16.666;
+            var dt = (now - lastTime)/16.666 * rush;
             requestAnimFrame(animLoop);
             update(dt);
             render();
@@ -320,6 +320,10 @@ function checkGameOver() {
 }
 
 function showHelp() {
+    $("#inst_main_body").html(
+            "通过消除方块使方块不会累积超出灰色区域<br><br>按左右键来旋转六边形<br><br>当3个颜色相同的方块聚在一起时就会被消掉<br><br>消掉更多的方块来赢取高分<br><br><span style='color:#f1c40f;'>彩色</span> <span style='color:#e74c3c'>的</span> <span style='color:#3498db'>六边形</span> <span style='color:#2ecc71'>边</span> 表示连击剩余时间<br><br>" +
+            "点击中心六边形以启动加速" +
+            "<br><br>暂停游戏请按 <i class = 'fa fa-pause'></i> 或者 <b>p</b>键<br>重新开始请按 <i class = 'fa fa-refresh'></i> 或者 <b>回车</b><br>帮助请按 <i class = 'fa fa-info-circle'>");
     if (gameState == 1) {
         pause();
     }

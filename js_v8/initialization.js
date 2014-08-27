@@ -20,6 +20,7 @@ function hidebottombar() {
 }
 
 function initialize(a) {
+    window.rush = 1;
     window.lastTime = Date.now();
     window.iframHasLoaded = false;
     window.colors = ["#e74c3c", "#f1c40f", "#3498db", "#2ecc71"];
@@ -78,7 +79,7 @@ function initialize(a) {
         settings = {
             platform: "mobile",
             startDist: 227,
-            creationDt: 40,
+            creationDt: 60,
             baseScale: 1.4,
             scale: 1,
             prevScale: 1,
@@ -109,7 +110,9 @@ function initialize(a) {
             comboTime: 240
         };
 
-        $("#inst_main_body").html("通过消除方块使方块不会累积超出灰色区域<br><br>按左右键来旋转六边形<br><br>当3个颜色相同的方块聚在一起时就会被消掉<br><br>消掉更多的方块来赢取高分<br><br><span style='color:#f1c40f;'>彩色</span> <span style='color:#e74c3c'>的</span> <span style='color:#3498db'>六边形</span> <span style='color:#2ecc71'>边</span> 表示连击剩余时间<br><br>暂停游戏请按 <i class = 'fa fa-pause'></i> 或者 <b>p</b>键<br>重新开始请按 <i class = 'fa fa-refresh'></i> 或者 <b>回车</b><br>帮助请按 <i class = 'fa fa-info-circle'>");
+        $("#inst_main_body").html("通过消除方块使方块不会累积超出灰色区域<br><br>按左右键来旋转六边形<br><br>当3个颜色相同的方块聚在一起时就会被消掉<br><br>消掉更多的方块来赢取高分<br><br><span style='color:#f1c40f;'>彩色</span> <span style='color:#e74c3c'>的</span> <span style='color:#3498db'>六边形</span> <span style='color:#2ecc71'>边</span> 表示连击剩余时间<br><br>" +
+                                     "点击中心六边形以启动加速" +
+                                    "<br><br>暂停游戏请按 <i class = 'fa fa-pause'></i> 或者 <b>p</b>键<br>重新开始请按 <i class = 'fa fa-refresh'></i> 或者 <b>回车</b><br>帮助请按 <i class = 'fa fa-info-circle'>");
     }
 
     window.canvas = document.getElementById('canvas');

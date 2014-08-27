@@ -35,7 +35,12 @@ function drawScoreboard() {
     } else if (scoreString.length == 9) {
         scoreSize = 27;
     }
-
+    if (rush ==1){
+        var color = "rgb(236, 240, 241)";
+    }
+    else{
+        var color = "#e74c3c";
+    }
     if (gameState === 0) {
         renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy, 60, "rgb(236, 240, 241)", String.fromCharCode("0xf04b"), 'px FontAwesome');
         renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy - 170 * settings.scale, 150, "#2c3e50", "填填圈");
@@ -46,10 +51,10 @@ function drawScoreboard() {
         renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy - 170 * settings.scale, 150, "#2c3e50", "填填圈");
         renderText(trueCanvas.width / 2 + gdx + 5 * settings.scale, trueCanvas.height / 2 + gdy + 100 * settings.scale, 20, "rgb(44,62,80)", '开始!');
         ctx.globalAlpha = scoreOpacity;
-        renderText(trueCanvas.width / 2 + gdx, trueCanvas.height / 2 + gdy, scoreSize, "rgb(236, 240, 241)", score);
+        renderText(trueCanvas.width / 2 + gdx, trueCanvas.height / 2 + gdy, scoreSize, color, score);
     } else {
         ctx.globalAlpha = scoreOpacity;
-        renderText(trueCanvas.width / 2 + gdx, trueCanvas.height / 2 + gdy, scoreSize, "rgb(236, 240, 241)", score);
+        renderText(trueCanvas.width / 2 + gdx, trueCanvas.height / 2 + gdy, scoreSize, color, score);
     }
 
     ctx.globalAlpha = 1;
@@ -99,9 +104,7 @@ function showText(text) {
             "<button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>" +
             "<h2 class='centeredHeader unselectable'> Game Over </h2></div>" +
             "<div class='modal-body'>" +
-            "<span class = 'label label-success' style = 'font-size:2.5rem;'>" + score + " pts</span>" +
-            "<div style='font-size:2rem; margin-top: 2rem' class='centeredHeader unselectable'> 高分:</div><table class='tg' style='margin:0px auto'> "
-
+            "<span class = 'label label-success' style = 'font-size:2.5rem'>" + score + " pts</span>"
     };
 
     if (text == 'paused') {
@@ -114,20 +117,60 @@ function showText(text) {
         var allZ = 1;
         var i;
 
+        if (settings.platform == 'mobile') {
+            $('#overlay').css('margin-top', '-10rem');
+            messages['gameover'] = "<div class='centeredHeader unselectable label label-danger' style = 'font-size: 2rem;margin-top: -2rem'> Game Over <span class = 'label label-success' style = 'font-size:3rem;margin-top: -2rem'>" + score + " pts</span></div>";
+        }
+
+        messages['gameover'] += "" +
+            "<div class='panel-group' id='accordion' style='max-width: 20rem; margin-top: 2rem; margin-left: auto; margin-right: auto'>" +
+            "<div class='panel panel-default'>" +
+            "<div class='panel-heading'>" +
+            "<h1 class='panel-title'>" +
+            "<a data-toggle='collapse' data-parent='#accordion' href='#highscore'>高分</a>" +
+            "</h1>" +
+            "</div>" +
+            "<div id='highscore' class='panel-collapse collapse in'>" +
+            "<div class='panel-body'>";
+
         for (i = 0; i < 3; i++) {
             if (highscores.length > i) {
-                messages['gameover'] += "<tr> <th class='tg-031e'>" + (i + 1) + ".</th> <th class='tg-031e'>" + highscores[i] + " pts</th> </tr>";
+                messages['gameover'] += "" +
+                    "<div class='row'>" +
+                    "<span class='tg-031e'>" + (i + 1) + "</span> <span class='tg-031e label label-warning'>" + highscores[i] + " pts</span>" +
+                    "</div>";
             }
         }
 
+        messages['gameover'] += "" +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            "</div>";
+
         var restartText;
         if (settings.platform == 'mobile') {
-            restartText = '轻按重新开始!';
+            restartText = 'Tap anywhere to restart!';
         } else {
-            restartText = '按回车键重新开始!';
+            restartText = 'Close to restart!';
         }
 
-        messages['gameover'] += "</table><br><div class='unselectable centeredSubHeader' id = 'tapToRestart'>" + restartText + "</div>" +"</div>";
+
+        if (settings.platform == 'mobile') {
+
+
+            messages['gameover'] += "" +
+                "<br>" +
+                "<div class='fltrt' id='tweetStuff' style='margin-top: -2rem'>" +
+                "<a class='btn btn-primary btn-lg tweet' href='https://twitter.com/intent/tweet?text=Can you beat my score of "+ score +" points at&button_hashtag=hextris ? http://hextris.github.io/hextris' data-lang='en' data-related='hextris:hextris'>分享到朋友圈</a autofocus>" +
+                "</div>";
+        } else {
+            messages['gameover'] += "" +
+                "<br><div class='unselectable centeredSubHeader' id = 'tapToRestart'>" +
+//                                        restartText +
+                "</div>" +
+                "</div> <!--modal-body-->";
+        }
         if (allZ) {
             for (i = 0; i < highscores.length; i++) {
                 if (highscores[i] !== 0) {
@@ -136,13 +179,19 @@ function showText(text) {
             }
         }
     }
-    messages['gameover'] += "<div class='modal-footer' id='tweetStuff'>" +
-                                "<a class='btn btn-primary' href='https://twitter.com/intent/tweet?text=Can you beat my score of "+ score +" points at&button_hashtag=hextris ? http://hextris.github.io/hextris' data-lang='en' data-related='hextris:hextris' target='_blank'>Share Your Score on Twitter</a>" +
-                                "<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>" +
-                            "</div>" +
-                            "</div><!-- /.modal-content -->" +
-                            "</div><!-- /.modal-dialog -->" +
-                            "</div><!-- /.modal -->";
+
+    if (settings.platform != 'mobile') {
+        messages['gameover'] += "<div class='modal-footer' id='tweetStuff'>" +
+            "<a class='btn btn-primary' href='https://twitter.com/intent/tweet?text=Can you beat my score of "+ score +" points at&button_hashtag=hextris ? http://hextris.github.io/hextris' data-lang='en' data-related='hextris:hextris' target='_blank'>Share Your Score on Twitter</a>" +
+            "<button type='button' class='btn btn-default' data-dismiss='modal'>重新开始</button>" +
+            "</div>" +
+            "</div><!-- /.modal-content -->" +
+            "</div><!-- /.modal-dialog -->" +
+            "</div><!-- /.modal -->";
+
+    }
+
+
     $("#overlay").html(messages[text]);
     $("#overlay").fadeIn("1000", "swing");
 
