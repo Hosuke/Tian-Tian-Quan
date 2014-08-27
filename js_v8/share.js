@@ -11,6 +11,7 @@ window.onload=function()
 
 function shareWx()
 {
+    share = true;
     if(uid<1)
     {
         wShare();
@@ -36,12 +37,12 @@ function wShare()
         WeixinJSBridge.on('menu:share:appmessage', function(argv){
             WeixinJSBridge.invoke('sendAppMessage',{
                 "appid":		"",
-                "img_url":		"http://hobeta.com/weichat/me.jpg",
+                "img_url":		"http://hosuke.github.io/Tian-Tian-Quan/images/twitter-opengraph.png",
                 "img_width":	"80",
                 "img_height":	"80",
-                "link":				"http://hobeta.com/weichat/",
+                "link":				"http://hosuke.github.io/Tian-Tian-Quan/",
                 "desc":				"",
-                "title":			"自定义标题"
+                "title":			"我在填填圈中赢得了" + score + "分，你能打败我吗？"
             }, function(){});
         });
 
@@ -49,10 +50,10 @@ function wShare()
         //TODO
         WeixinJSBridge.on('menu:share:timeline', function (argv) {
             WeixinJSBridge.invoke('shareTimeline', {
-                "img_url": "http://hobeta.com/weichat/me.jpg",
+                "img_url": "http://hosuke.github.io/Tian-Tian-Quan/images/twitter-opengraph.png",
                 "img_width": "80",
                 "img_height": "80",
-                "link": "http://hobeta.com/weichat/",
+                "link": "http://hosuke.github.io/Tian-Tian-Quan/",
                 "desc": "",
                 "title": "我在填填圈中赢得了" + score + "分，你能打败我吗？"
             }, function () { });

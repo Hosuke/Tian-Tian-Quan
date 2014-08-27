@@ -123,6 +123,7 @@ function showText(text) {
         }
 
         messages['gameover'] += "" +
+//            "<div class='arron'><img src='images/arrow.png'></div>" +
             "<div id='sbg' class='sbg'>" +
                 "<div class='arron'></div>" +
                 "<p id='msg'>请点击右上角<br />点击【分享到朋友圈】<br /></p>" +

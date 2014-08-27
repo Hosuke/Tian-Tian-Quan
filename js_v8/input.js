@@ -168,8 +168,8 @@ function handleClickTap(x,y) {
     }
     if (gameState == 2 && canRestart) {
         setTimeout(function() {
-            if(tweetblock) {
-                tweetblock = false;
+            if(share) {
+                share = false;
                 return;
             }
             else{
