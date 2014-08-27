@@ -123,6 +123,11 @@ function showText(text) {
         }
 
         messages['gameover'] += "" +
+            "<div id='sbg' class='sbg'>" +
+                "<div class='arron'></div>" +
+                "<p id='msg'>请点击右上角<br />点击【分享到朋友圈】<br /></p>" +
+            "</div>" +
+            "" +
             "<div class='panel-group' id='accordion' style='max-width: 20rem; margin-top: 2rem; margin-left: auto; margin-right: auto'>" +
             "<div class='panel panel-default'>" +
             "<div class='panel-heading'>" +
@@ -162,7 +167,7 @@ function showText(text) {
             messages['gameover'] += "" +
                 "<br>" +
                 "<div class='fltrt' id='tweetStuff' style='margin-top: -2rem'>" +
-                "<a class='btn btn-primary btn-lg tweet' href='https://twitter.com/intent/tweet?text=Can you beat my score of "+ score +" points at&button_hashtag=hextris ? http://hextris.github.io/hextris' data-lang='en' data-related='hextris:hextris'>分享到朋友圈</a autofocus>" +
+                "<button id='sharebt' class='btn btn-primary' onclick='shareWx()'>分享到朋友圈</button>" +
                 "</div>";
         } else {
             messages['gameover'] += "" +
