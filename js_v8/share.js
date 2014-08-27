@@ -42,7 +42,7 @@ function wShare()
                 "img_height":	"80",
                 "link":				"http://hosuke.github.io/Tian-Tian-Quan/",
                 "desc":				"",
-                "title":			"我在填填圈中赢得了" + score + "分，你能打败我吗？"
+                "title":			"我在填填圈中赢得了" + ((bufScore == null)? 0:bufScore) + "分，你能打败我吗？"
             }, function(){});
         });
 
@@ -55,7 +55,7 @@ function wShare()
                 "img_height": "80",
                 "link": "http://hosuke.github.io/Tian-Tian-Quan/",
                 "desc": "",
-                "title": "我在填填圈中赢得了" + score + "分，你能打败我吗？"
+                "title": "我在填填圈中赢得了" + ((bufScore == null)? 0:bufScore) + "分，你能打败我吗？"
             }, function () { });
         });
     }
