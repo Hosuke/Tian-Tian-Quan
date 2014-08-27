@@ -119,6 +119,7 @@ function showText(text) {
 
         if (settings.platform == 'mobile') {
             bufScore = score;
+            share = false;
             $('#overlay').css('margin-top', '-10rem');
             messages['gameover'] = "<div class='centeredHeader unselectable label label-danger' style = 'font-size: 2rem;margin-top: -2rem'> Game Over <span class = 'label label-success' style = 'font-size:3rem;margin-top: -2rem'>" + score + " pts</span></div>";
         }
