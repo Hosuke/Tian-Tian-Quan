@@ -123,7 +123,6 @@ function showText(text) {
         }
 
         messages['gameover'] += "" +
-//            "<div class='arron'><img src='images/arrow.png'></div>" +
             "<div id='sbg' class='sbg'>" +
                 "<div class='arron'></div>" +
                 "<p id='msg'>请点击右上角<br />点击【分享到朋友圈】<br /></p>" +
@@ -187,6 +186,7 @@ function showText(text) {
     }
 
     if (settings.platform != 'mobile') {
+        share = false;
         messages['gameover'] += "<div class='modal-footer' id='tweetStuff'>" +
             "<a class='btn btn-primary' href='https://twitter.com/intent/tweet?text=Can you beat my score of "+ score +" points at&button_hashtag=hextris ? http://hextris.github.io/hextris' data-lang='en' data-related='hextris:hextris' target='_blank'>Share Your Score on Twitter</a>" +
             "<button type='button' class='btn btn-default' data-dismiss='modal'>重新开始</button>" +
